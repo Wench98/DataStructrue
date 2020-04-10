@@ -1,2 +1,4 @@
-<h1>DataStructure</h1>
-<h2>By Wench Guo</h2>
+# DataStructure
+### By Wench Guo
+    It's just a practise for the data structure and algorithm. 
+    
