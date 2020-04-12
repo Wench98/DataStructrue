@@ -1,9 +1,11 @@
 package cn.wench.queue;
 
+import javafx.scene.shape.Circle;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ArrayQueueDemo {
+public class CircleArrayQueueDemo {
 
     /**
      * Let's have a try
@@ -11,7 +13,7 @@ public class ArrayQueueDemo {
      * @param args
      */
     public static void main(String[] args) {
-        ArrayQueue queue = new ArrayQueue(3);//create a queue
+        CircleQueue queue = new CircleQueue(4);//why maxSize is 4 ? Don't forget, there is a free position for buffering
         char command = ' ';//receive user input
         Scanner scanner = new Scanner(System.in);
         boolean loop = true;
@@ -59,30 +61,23 @@ public class ArrayQueueDemo {
 
         System.out.println("Already exit!");
     }
-
 }
 
 /**
- * use an array to simulate a queue
- * so we should write a 'ArrayQueue' class
+ * In this java file
+ * I made an adjustment to the definition of front and rear
  */
-class ArrayQueue {
+class CircleQueue {
 
     private int maxSize;    //  represents the maximum capacity of the array
-    private int front;      //  queue head:the previous position of the queue head
-    private int rear;       //  queue tail:the data of the queue tail
+    private int front;      //  queue head:point to the position of the first element of the queue
+    private int rear;       //  queue tail:points to the next element in the last position of the queue,so that there is a proper position to buffer
     private int[] array;    //  this array is used to store data of queue - simulate queue
 
-    /**
-     * constructor for creating queues
-     *
-     * @param maxSize maximum capacity of the array(or queue)
-     */
-    public ArrayQueue(int maxSize) {
-        this.array = new int[maxSize];
+    public CircleQueue(int maxSize) {
         this.maxSize = maxSize;
-        this.front = -1;//point to the head of the queue, which is the previous position of the queue head
-        this.rear = -1;//point to the tail of the queue,which is the data of the queue tail
+        this.array = new int[maxSize];
+        //initial value of front and rear are 0
     }
 
     /**
@@ -91,7 +86,7 @@ class ArrayQueue {
      * @return
      */
     public boolean isFull() {
-        return this.rear == this.maxSize - 1;
+        return (this.rear + 1) % this.maxSize == this.front;
     }
 
     /**
@@ -114,8 +109,8 @@ class ArrayQueue {
             System.out.println("The queue is full now,so you can't put the data into it.");
             return;
         }
-        this.rear++;
         this.array[this.rear] = data;
+        this.rear=(this.rear + 1) % this.maxSize;
     }
 
     /**
@@ -128,8 +123,9 @@ class ArrayQueue {
         if (isEmpty()) {
             throw new RuntimeException("The queue is empty,you can only put data in it.");
         }
-        this.front++;
-        return this.array[this.front];
+        int temp = this.array[this.front];
+        this.front=(this.front + 1) % this.maxSize ;
+        return temp;
     }
 
     /**
@@ -139,11 +135,19 @@ class ArrayQueue {
         if (isEmpty()) {
             System.out.println("The queue is empty,no data to show.");
         }
-        System.out.println(Arrays.toString(this.array));
-        for (int i = 0; i < this.array.length; i++) {
-            System.out.printf("arr[%d]=%d\t", i, this.array[i]);
+//        System.out.println(Arrays.toString(this.array));
+        for (int i = this.front; i < this.front + size(); i++) {
+            System.out.printf("arr[%d]=%d\t", i % this.maxSize, this.array[i % this.maxSize]);
         }
         System.out.println();
+    }
+
+    /**
+     * Calculate the number of valid data in the queue
+     * @return
+     */
+    public int size(){
+        return (this.rear + this.maxSize - this.front) % this.maxSize;
     }
 
     /**
@@ -155,7 +159,10 @@ class ArrayQueue {
         if (isEmpty()) {
             throw new RuntimeException("The queue is empty,there is no head of the queue.");
         }
-        return this.array[this.front + 1];
+        return this.array[this.front];
     }
 
 }
+
+
+
