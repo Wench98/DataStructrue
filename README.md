@@ -38,3 +38,6 @@
     在cn.wench.linkedlist.SingleLinkedListDemo.java文件中添加了addByOrder方法，实现了按照编号的顺序进行插入节点。
     在cn.wench.linkedlist.SingleLinkedListDemo.java文件中添加了update方法，实现了按照编号修改某个节点信息，但不可修改编号属性。
     
+## 单链表中的节点删除
+    2020-05-12
+    在cn.wench.linkedlist.SingleLinkedListDemo.java文件中添加了delete方法，实现了对单链表中某个节点的删除——根据节点no编号。

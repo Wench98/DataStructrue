@@ -28,12 +28,18 @@ public class SingleLinkedListDemo {
         singleLinkedList.list();
 
         //测试修改节点
-        HeroNode newHeroNode = new HeroNode(2,"卢君","是玉麒麟");
+        HeroNode newHeroNode = new HeroNode(2, "卢君", "是玉麒麟");
         singleLinkedList.update(newHeroNode);
 
         //打印节点信息
         System.out.println("After update:");
         singleLinkedList.list();
+
+        //删除某个节点
+        singleLinkedList.delete(1);
+        System.out.println("After delete:");
+        singleLinkedList.list();
+
     }
 
 }
@@ -128,8 +134,34 @@ class SingleLinkedList {
         if (flag) {
             temp.name = newHeroNode.name;
             temp.nickName = newHeroNode.nickName;
-        }else {
+        } else {
             System.out.println("很抱歉，没有找到您欲修改的编号节点。编号 " + newHeroNode.no + " 的节点不存在。");
+        }
+    }
+
+    /**
+     * 删除节点
+     * 思路：
+     * 1、head节点不动，因此需要一个辅助节点temp找到待删除节点的前一个节点
+     * 2、在比较时，是temp.next.no 与 待删除节点的no 进行比较
+     */
+    public void delete(int no) {
+        HeroNode temp = head;
+        boolean flag = false;   //标识是否找到待删除节点的前一个节点
+        while (true) {
+            if (temp.next == null) {    //说明已经遍历到了链表的尾部
+                break;
+            }
+            if (temp.next.no == no) {
+                flag = true;    //找到了待删除节点的前一个节点temp
+                break;
+            }
+            temp = temp.next;
+        }
+        if (flag) {
+            temp.next = temp.next.next;
+        } else {
+            System.out.printf("很抱歉，您要删除的节点%d在该链表中不存在。\n", no);
         }
     }
 
