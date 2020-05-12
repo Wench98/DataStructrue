@@ -32,3 +32,9 @@
     代码实现单链表的创建以及对该单链表进行遍历，该方式是直接添加到此单链表的尾部
     文件所在包：cn.wench.linkedlist
     类名称：SingleLinkedListDemo
+    
+## 按顺序插入节点到单链表、修改单链表的某个节点信息
+    2020-05-12
+    在cn.wench.linkedlist.SingleLinkedListDemo.java文件中添加了addByOrder方法，实现了按照编号的顺序进行插入节点。
+    在cn.wench.linkedlist.SingleLinkedListDemo.java文件中添加了update方法，实现了按照编号修改某个节点信息，但不可修改编号属性。
+    
