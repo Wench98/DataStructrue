@@ -41,3 +41,15 @@
 ## 单链表中的节点删除
     2020-05-12
     在cn.wench.linkedlist.SingleLinkedListDemo.java文件中添加了delete方法，实现了对单链表中某个节点的删除——根据节点no编号。
+    
+## 单链表练习题
+    2020-05-13
+    1、求单链表中有效节点的个数
+    解答：cn.wench.linkedlist.SingleLinkedListDemo.java文件中的getLength(HeroNode head)方法。
+    2、查找单链表中的倒数第K个节点
+    解答：cn.wench.linkedlist.SingleLinkedListDemo.java文件中的findLastIndexNode(HeroNode hero, int index)方法。
+    
+    今天面试了两家公司，一家外包，一家因为自己知识储备量不够没能抓住机会，没有怨言。
+    我也不知道自己能不能找到合心意的Java开发工作，就目前来看，应该是没有任何希望了。
+    我选择把Java基础打牢一点，再回头看一遍，也继续每天更新数据结构的提交，宋红康的JVM教程第一篇也已经看完大半了。
+    如果这些都做完了，还是没法找到合适工作的话，那便试试看其他的出路吧。
