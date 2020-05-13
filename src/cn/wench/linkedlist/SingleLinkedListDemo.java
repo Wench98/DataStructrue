@@ -1,5 +1,7 @@
 package cn.wench.linkedlist;
 
+import java.util.Stack;
+
 public class SingleLinkedListDemo {
 
     public static void main(String[] args) {
@@ -46,6 +48,59 @@ public class SingleLinkedListDemo {
         //测试一下是否找到了倒数第K个节点
         HeroNode res = findLastIndexNode(singleLinkedList.getHead(),3);
         System.out.println("结果："+res);
+
+        //测试逆序打印单链表
+        System.out.println("Original LinkedList:");
+        singleLinkedList.list();
+        System.out.println("Reverse Print:");
+        reversePrint(singleLinkedList.getHead());
+
+        //测试一下单链表的反转功能
+        System.out.println("Before Reverse:");
+        singleLinkedList.list();
+        reverseList(singleLinkedList.getHead());
+        System.out.println("After Reverse:");
+        singleLinkedList.list();
+
+    }
+
+    //使用Stack（栈），将各个节点压入到栈中，然后利用栈的先进后出的特点，就实现了逆序打印的效果
+    public static void reversePrint(HeroNode hero){
+        if (hero.next == null) {
+            return; //空链表不能打印
+        }
+        //创建一个栈，将各个节点压入栈
+        Stack<HeroNode> stack = new Stack<HeroNode>();
+        HeroNode cur = hero.next;
+        //将链表的所有节点压入栈
+        while (cur != null) {
+            stack.push(cur);
+            cur = cur.next;     //cur后移，这样就可以压入下一个节点
+        }
+        //将栈中的节点进行打印，pop出栈
+        while (stack.size() > 0) {
+            System.out.println(stack.pop());    //stack特点是先进后出
+        }
+    }
+
+    //将单链表反转
+    public static void reverseList(HeroNode head){
+        //如果当前链表为空，或者只有一个节点，无需反转，直接返回
+        if (head.next == null || head.next.next == null) {
+            return;
+        }
+        //定义一个辅助变量，帮助我们遍历原来的链表
+        HeroNode cur = head.next;
+        HeroNode next = null;       //指向当前节点【cur】的下一个节点
+        HeroNode reverseHead = new HeroNode(0,"","");
+        //遍历原来的链表并完成，每遍历一个节点，就将其取出，并放在新的链表reverseHead的最新端
+        while (cur != null) {
+            next = cur.next;    //先暂时保存当前节点的下一个节点，因为后面需要使用
+            cur.next = reverseHead.next;    //将cur的下一个节点指向新的链表的最前端
+            reverseHead.next = cur;     //将cur连接到新的链表上
+            cur = next; //让cur后移
+        }
+        head.next = reverseHead.next;
     }
 
     /**

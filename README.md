@@ -53,3 +53,11 @@
     我也不知道自己能不能找到合心意的Java开发工作，就目前来看，应该是没有任何希望了。
     我选择把Java基础打牢一点，再回头看一遍，也继续每天更新数据结构的提交，宋红康的JVM教程第一篇也已经看完大半了。
     如果这些都做完了，还是没法找到合适工作的话，那便试试看其他的出路吧。
+    
+    3、单链表的反转
+    解答：cn.wench.linkedlist.SingleLinkedListDemo.java文件中的reverseList(HeroNode head)方法
+    4、从尾到头打印单链表，使用栈的先进后出特点进行打印
+    解答：cn.wench.linkedlist.SingleLinkedListDemo.java文件中的reversePrint(HeroNode hero)方法
+    
+    5、合并两个有序的单链表，合并之后的链表依然有序
+    解答：待完成。
