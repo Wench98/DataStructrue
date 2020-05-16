@@ -1,48 +1,50 @@
 # DataStructure
-### By Wench Guo
+    By Wench Guo
     It's just a practise for the data structure and algorithm. 
     这是一个学习数据结构以及算法的项目。
     学习来源：https://www.bilibili.com/video/BV1E4411H73v/?p=1
     
-## Question for Sparse Array
+## 第一部分——链表
+    
+### Question for Sparse Array
     2020-04-10
     Store the sparse array into a file and read from the file to restore the original array.
     稀疏数组练习的第一遍敲完
     
-## ArrayQueueDemo
+### ArrayQueueDemo
     2020-04-11
     There is a problem in the process of running the program.
     This queue can only be used once, and the data in the queue cannot be reused.
     使用了一个一位数组来模拟一个简单的队列。但是，该数组只能被使用一次，无法做到重用。
 
-## CircleArrayQueueDemo
+### CircleArrayQueueDemo
     2020-04-12
     The key to the circular array is: modulo.
     用了一个环形数组来模拟队列，达到了队列的重用。
     
-## 完善毕设、论文降重
+### 完善毕设、论文降重
     2020-04-13～2020-05-11
     完善了毕设的评论、通知以及后台管理的功能，论文重复率降到10%以下后，笔者便着手找工作。
     很惭愧，基本上没有收到简历的回应。7号投了一个简历后，过了两轮测试，约13号公司现场进行机试。
     但至今没有收到确认邮件或其他通知消息，在前两次测试中深知自己基础不够扎实。
     便开始重新回顾Java语言知识，开始学习JVM的相关知识，同时对数据结构以及算法的进行程序化实现。
     
-## 单链表的创建与遍历
+### 单链表的创建与遍历
     2020-05-11
     代码实现单链表的创建以及对该单链表进行遍历，该方式是直接添加到此单链表的尾部
     文件所在包：cn.wench.linkedlist
     类名称：SingleLinkedListDemo
     
-## 按顺序插入节点到单链表、修改单链表的某个节点信息
+### 按顺序插入节点到单链表、修改单链表的某个节点信息
     2020-05-12
     在cn.wench.linkedlist.SingleLinkedListDemo.java文件中添加了addByOrder方法，实现了按照编号的顺序进行插入节点。
     在cn.wench.linkedlist.SingleLinkedListDemo.java文件中添加了update方法，实现了按照编号修改某个节点信息，但不可修改编号属性。
     
-## 单链表中的节点删除
+### 单链表中的节点删除
     2020-05-12
     在cn.wench.linkedlist.SingleLinkedListDemo.java文件中添加了delete方法，实现了对单链表中某个节点的删除——根据节点no编号。
     
-## 单链表练习题
+### 单链表练习题
     2020-05-13
     1、求单链表中有效节点的个数
     解答：cn.wench.linkedlist.SingleLinkedListDemo.java文件中的getLength(HeroNode head)方法。
@@ -62,12 +64,19 @@
     5、合并两个有序的单链表，合并之后的链表依然有序
     解答：待完成。
     
-## 双向链表的增删改查
+### 双向链表的增删改查
     2020-05-14
     cn.wench.linkedlist.DoubleLinkedListDemo.java文件实现了对双向链表的增删改查操作
     待完成：双向链表的第二种添加方式，按照编号顺序进行添加。按照单链表的顺序添加，稍作修改。
     
-## 约瑟夫问题——环形链表
+### 约瑟夫问题——环形链表
     2020-05-15
     cn.wench.linkedlist.Josephu.java文件完成了环形链表，即约瑟夫环的实现。
     数到规定数字的人出圈，直到剩下最后一个。
+    
+## 第二部分——栈
+
+### 数组模拟栈
+    2020-05-16
+    cn.wench.stack 包下的ArrayStackDemo.java 文件实现了数组模拟栈的操作，编写了出栈、入栈、显示栈数据、栈空、栈满的方法。
+    小练习：实现使用链表来模拟栈——cn.wench.stack 包下的LinkedListStackDemo.java文件实现了与上述一致的栈操作，使用的是单链表实现的。

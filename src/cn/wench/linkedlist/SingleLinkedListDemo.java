@@ -70,7 +70,7 @@ public class SingleLinkedListDemo {
             return; //空链表不能打印
         }
         //创建一个栈，将各个节点压入栈
-        Stack<HeroNode> stack = new Stack<HeroNode>();
+        Stack<HeroNode> stack = new Stack();
         HeroNode cur = hero.next;
         //将链表的所有节点压入栈
         while (cur != null) {
