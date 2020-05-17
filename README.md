@@ -80,3 +80,13 @@
     2020-05-16
     cn.wench.stack 包下的ArrayStackDemo.java 文件实现了数组模拟栈的操作，编写了出栈、入栈、显示栈数据、栈空、栈满的方法。
     小练习：实现使用链表来模拟栈——cn.wench.stack 包下的LinkedListStackDemo.java文件实现了与上述一致的栈操作，使用的是单链表实现的。
+    
+### 栈实现综合计算器——中缀表达式
+    2020-05-17
+    示例文件：stack包下的Calculator.java——中缀表达式
+    
+    如何处理多位数的问题？
+    解决：示例文件stack包下的Calculator.java的48～66行
+    
+    给表达式加入小括号——待解决
+    
