@@ -258,6 +258,14 @@
     
     二分查找/折半查找——search包下的BinarySearch文件
     
+    2020-05-30
+    插值查找原理介绍：
+    1、插值查找算法类似于二分查找，不同的是插值查找每次从自适应mid处开始查找
+    2、将折半查找中的求mid索引的公式，更改为：int mid = low + (high-low) * (findVal - arr[low]) / (arr[high] - arr[low])
+    说明：low表示左边索引，high表示右边索引，findVal是要查找的值，上述公式即为插值索引的求取
+    
+    
+    
     
     
  
