@@ -478,7 +478,7 @@
     赫夫曼编码是可变长编码的一种。
     字符的编码都不能是其他字符编码的前缀，符合此要求的编码叫做前缀编码，即不能匹配到重复的编码。
     
-    以给字符串为例说明编码步骤：
+    一、以给字符串为例说明编码步骤：
         1、按照字符出现的次数构建一棵赫夫曼树，次数作为权值
         2、根据赫夫曼树，给各个字符规定编码(前缀编码)，向左
             的路径为0，向右的路径为1
@@ -489,12 +489,21 @@
     注意：这个赫夫曼树根据排序方法不同，也可能不太一样，这样对应的赫夫曼编码也不完全一样，
             但是wpl是一样的，都是最小的。最后生成的赫夫曼编码的长度是一样的。
             
-    最佳实践——数据压缩（创建赫夫曼树）
+    二、最佳实践——数据压缩（创建赫夫曼树）
         以"i like like like Java do you like a Java"字符串为例
         创建其对应的赫夫曼树
         实现文件：huffmancode包下的HuffmanCode文件
                 实现了将字符串转为对应的赫夫曼树以及其对应的赫夫曼编码表
-    
+                
+    2020-06-12～2020-06-13
+    1、数据压缩-赫夫曼编码字节数组
+        实现文件：huffmancode包下的HuffmanCode文件中的zip(byte[] bytes, Map<Byte, String> huffmanCodes)方法
+    2、数据压缩-赫夫曼字节数组封装
+        实现文件：huffmancode包下的HuffmanCode文件中的huffmanZip(byte[] bytes)方法
+    3、数据解压(使用赫夫曼编码解码)-字节转二进制字符串
+        实现文件：huffmancode包下的HuffmanCode文件中的byteToBitString(boolean flag, byte b)方法
+    4、数据解压-赫夫曼解码
+        实现文件：huffmancode包下的HuffmanCode文件中的
     
     
     
