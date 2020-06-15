@@ -495,7 +495,7 @@
         实现文件：huffmancode包下的HuffmanCode文件
                 实现了将字符串转为对应的赫夫曼树以及其对应的赫夫曼编码表
                 
-    2020-06-12～2020-06-13
+    2020-06-13
     1、数据压缩-赫夫曼编码字节数组
         实现文件：huffmancode包下的HuffmanCode文件中的zip(byte[] bytes, Map<Byte, String> huffmanCodes)方法
     2、数据压缩-赫夫曼字节数组封装
@@ -503,7 +503,19 @@
     3、数据解压(使用赫夫曼编码解码)-字节转二进制字符串
         实现文件：huffmancode包下的HuffmanCode文件中的byteToBitString(boolean flag, byte b)方法
     4、数据解压-赫夫曼解码
-        实现文件：huffmancode包下的HuffmanCode文件中的
+        实现文件：huffmancode包下的HuffmanCode文件中的decode(Map<Byte, String> huffmanCodes, byte[] huffmanBytes)方法
+        Tips：此处关于StringIndexOutOfBoundException尚未解决！！！
+        
+    2020-06-15
+    1、使用赫夫曼编码压缩文件
+        实现文件：huffmancode包下的HuffmanCode文件中的zipFile(String srcFile,String dstFile)方法
+    2、使用赫夫曼编码解压文件
+        实现文件：huffmancode包下的HuffmanCode文件中的unZipFile(String zipFile, String dstFile)方法
+    3、赫夫曼编码压缩文件注意事项
+        1、若文件本身就是经过压缩处理的，那么使用赫夫曼编码再压缩，效率不会有明显变化。
+        2、赫夫曼编码是按字节来处理的，因此可以处理所有的文件
+        3、如一个文件中的内容，重复的数据不多，压缩效果也不会很明显
+    
     
     
     

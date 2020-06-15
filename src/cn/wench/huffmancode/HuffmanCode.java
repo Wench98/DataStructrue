@@ -1,9 +1,11 @@
 package cn.wench.huffmancode;
 
+import java.io.*;
 import java.util.*;
 
 public class HuffmanCode {
     public static void main(String[] args) {
+        /*
         String content = "i like like like java do you like a java";
         byte[] contentBytes = content.getBytes();
         System.out.println(contentBytes.length);    //40
@@ -14,6 +16,8 @@ public class HuffmanCode {
 
         byte[] sourceBytes = decode(huffmanCodes, huffmanCodeBytes);
         System.out.println("原字符串为：" + Arrays.toString(sourceBytes));
+
+         */
 
         /*
         List<Node> nodes = getNodes(contentBytes);
@@ -33,6 +37,125 @@ public class HuffmanCode {
         System.out.println("huffmanCodeBytes= " + Arrays.toString(huffmanCodeBytes));   //17
 
          */
+
+        /*
+        //测试压缩文件
+        String srcFile = "/Users/wench/cover.png";  //此处笔者使用的是Mac电脑，因此路径与Windows有所不同
+        String dstFile = "/Users/wench/cover.zip";  //此处笔者使用的是Mac电脑，因此路径与Windows有所不同
+        zipFile(srcFile,dstFile);
+        System.out.println("zip succeed");
+
+         */
+
+        /*
+        //测试解压文件
+        String zipFile = "/Users/wench/cover.zip";  //此处笔者使用的是Mac电脑，因此路径与Windows有所不同
+        String dstFile = "/Users/wench/cover2.png"; //此处笔者使用的是Mac电脑，因此路径与Windows有所不同
+        unZipFile(zipFile,dstFile);
+        System.out.println("unzip succeed");
+
+         */
+
+
+    }
+
+
+    /**
+     * 编写一个方法，完成对压缩文件的解压
+     *
+     * @param zipFile 准备解压的文件
+     * @param dstFile 将文件解压到哪个路径
+     */
+    public static void unZipFile(String zipFile, String dstFile) {
+
+        //创建文件输入流
+        InputStream is = null;
+        //定义一个对象输入流
+        ObjectInputStream ois = null;
+        //定义文件的输出流
+        OutputStream os = null;
+
+        try {
+            //创建文件输入流
+            is = new FileInputStream(zipFile);
+            //创建一个和 is 关联的对象输入流
+            ois = new ObjectInputStream(is);
+            //读取byte数组 huffmanBytes
+            byte[] huffmanBytes = (byte[])ois.readObject();
+            //读取赫夫曼编码表
+            Map<Byte,String> huffmanCodes = (Map<Byte, String>) ois.readObject();
+            //解码
+            byte[] bytes = decode(huffmanCodes, huffmanBytes);
+            //将bytes 数组写入到目标文件
+            os = new FileOutputStream(dstFile);
+            //写数据到 dstFile 文件
+            os.write(bytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if (os != null) {
+                    os.close();
+                }
+                if (ois != null) {
+                    ois.close();
+                }
+                if (is != null) {
+                    is.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 编写方法，将一个文件进行压缩
+     *
+     * @param srcFile 希望压缩的文件的全路径
+     * @param dstFile 压缩后将压缩文件放到哪个目录下
+     */
+    public static void zipFile(String srcFile, String dstFile) {
+
+        //创建输出流
+        OutputStream os = null;
+        ObjectOutputStream oos = null;
+        //创建文件输入流
+        FileInputStream is = null;
+        try {
+            //创建文件输入流
+            is = new FileInputStream(srcFile);
+            //创建一个和源文件大小一样的byte[]
+            byte[] b = new byte[is.available()];
+            //读取文件
+            is.read(b);
+            //直接对源文件压缩
+            byte[] huffmanBytes = huffmanZip(b);
+            //创建文件的输出流，存放压缩文件
+            os = new FileOutputStream(dstFile);
+            //创建一个和文件输出流相关联的ObjectOutputStream
+            oos = new ObjectOutputStream(os);
+            oos.writeObject(huffmanBytes);
+            //这里以对象流的方式写入 赫夫曼编码 ，是为了以后恢复原文件时使用
+            //注意一定要把赫夫曼编码 写入压缩文件
+            oos.writeObject(huffmanCodes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+                }
+                if (os != null) {
+                    os.close();
+                }
+                if (is != null) {
+                    is.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 
