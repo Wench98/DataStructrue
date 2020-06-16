@@ -497,20 +497,20 @@
                 
     2020-06-13
     1、数据压缩-赫夫曼编码字节数组
-        实现文件：huffmancode包下的HuffmanCode文件中的zip(byte[] bytes, Map<Byte, String> huffmanCodes)方法
+        代码实现：huffmancode包下的HuffmanCode文件中的zip(byte[] bytes, Map<Byte, String> huffmanCodes)方法
     2、数据压缩-赫夫曼字节数组封装
-        实现文件：huffmancode包下的HuffmanCode文件中的huffmanZip(byte[] bytes)方法
+        代码实现：huffmancode包下的HuffmanCode文件中的huffmanZip(byte[] bytes)方法
     3、数据解压(使用赫夫曼编码解码)-字节转二进制字符串
-        实现文件：huffmancode包下的HuffmanCode文件中的byteToBitString(boolean flag, byte b)方法
+        代码实现：huffmancode包下的HuffmanCode文件中的byteToBitString(boolean flag, byte b)方法
     4、数据解压-赫夫曼解码
-        实现文件：huffmancode包下的HuffmanCode文件中的decode(Map<Byte, String> huffmanCodes, byte[] huffmanBytes)方法
+        代码实现：huffmancode包下的HuffmanCode文件中的decode(Map<Byte, String> huffmanCodes, byte[] huffmanBytes)方法
         Tips：此处关于StringIndexOutOfBoundException尚未解决！！！
         
     2020-06-15
     1、使用赫夫曼编码压缩文件
-        实现文件：huffmancode包下的HuffmanCode文件中的zipFile(String srcFile,String dstFile)方法
+        代码实现：huffmancode包下的HuffmanCode文件中的zipFile(String srcFile,String dstFile)方法
     2、使用赫夫曼编码解压文件
-        实现文件：huffmancode包下的HuffmanCode文件中的unZipFile(String zipFile, String dstFile)方法
+        代码实现：huffmancode包下的HuffmanCode文件中的unZipFile(String zipFile, String dstFile)方法
     3、赫夫曼编码压缩文件注意事项
         1、若文件本身就是经过压缩处理的，那么使用赫夫曼编码再压缩，效率不会有明显变化。
         2、赫夫曼编码是按字节来处理的，因此可以处理所有的文件
@@ -523,10 +523,60 @@
         二叉排序树：BST(Binary Sort Tree)，对于二叉排序树的任何一个非叶子结点，
         要求左子结点的值比当前结点的值小，右子结点的值比当前结点的值大。
         特别说明：如果有相同的值，可以将该结点放在左子结点或右子结点
+        
+    二叉排序树的创建与遍历
+        代码实现——binarysorttree包下的BinarySortTreeDemo文件中的BinarySortTree类下的add(Node node)方法、infixOrder()方法
+        
+    二叉排序树的删除：
+        1、删除叶子结点
+        2、删除只有一棵子树的结点
+        3、删除有两棵子树的结点
+    代码实现——binarysorttree包下的BinarySortTreeDemo文件中的BinarySortTree类下的delNode(int value)方法
+        
+    删除叶子结点的思路：
+        1、需要先去找到要删除的结点 targetNode
+            代码实现——binarysorttree包下的BinarySortTreeDemo文件中的Node类中的search(int value)方法
+        2、找到targetNode的父结点parent
+            代码实现——binarysorttree包下的BinarySortTreeDemo文件中的Node类中的searchParent(int value)方法
+        3、确定targetNode 是 parent的左子结点还是右子结点
+        4、根据前面所述的情况来做出相应的删除
+            左子结点：parent.left = null
+            右子结点：parent.right = null
     
-    
-    
-    
-    
-    
- 
+    删除只有一棵子树的结点：
+        1、需要先去找到要删除的结点 targetNode
+            代码实现——binarysorttree包下的BinarySortTreeDemo文件中的Node类中的search(int value)方法
+        2、找到targetNode的父结点 parent
+            代码实现——binarysorttree包下的BinarySortTreeDemo文件中的Node类中的searchParent(int value)方法
+        3、确定 targetNode 的子结点是左子结点还是右子结点
+        4、确定targetNode 是 parent的左子结点还是右子结点
+        5、如果 targetNode 有左子结点
+            5.1、如果 targetNode 是 parent 的左子结点
+                    parent.left = targetNode.left
+            5.1、如果 targetNode 是 parent 的右子结点
+                    parent.right = targetNode.left
+        6、如果 targetNode 有右子结点
+            6.1、如果 targetNode 是 parent 的左子结点
+                    parent.left = targetNode.right
+            6.2、如果 targetNode 是 parent 的右子结点
+                    parent.right = targetNode.right
+                    
+    删除有两棵子树的结点：
+        1、需要先去找到要删除的结点 targetNode
+            代码实现——binarysorttree包下的BinarySortTreeDemo文件中的Node类中的search(int value)方法
+        2、找到 targetNode 的父结点 parent
+            代码实现——binarysorttree包下的BinarySortTreeDemo文件中的Node类中的searchParent(int value)方法
+        3、从 targetNode 的右子树找到最小的结点
+        4、用一个临时变量，将最小结点的值保存在临时变量 temp 中
+        5、删除该最小结点
+        6、targetNode.value = temp
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
