@@ -2,6 +2,7 @@ package cn.wench.algorithm;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class HorseChessboard {
 
@@ -45,6 +46,7 @@ public class HorseChessboard {
         chessboard[row][column] = step;
         visited[row * X + column] = true;
         ArrayList<Point> ps = next(new Point(column, row));
+        sort(ps);
         while (!ps.isEmpty()) {
             Point p = ps.remove(0); //取走下一个可以走的位置
             //判断该店是否已经访问过
@@ -97,10 +99,32 @@ public class HorseChessboard {
         }
 
         return ps;
+    }
 
+    //根据当前这一步的所有下一步的选择位置，进行递减排序
+    public static void sort(ArrayList<Point> ps) {
+        ps.sort(new Comparator<Point>() {
+            @Override
+            public int compare(Point o1, Point o2) {
+                int count1 = next(o1).size();
+                int count2 = next(o2).size();
+                if (count1 < count2) {
+                    return -1;
+                } else if (count1 == count2) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+            }
+        });
     }
 
 }
+
+
+
+
+
 
 
 
