@@ -773,6 +773,16 @@
         扩展到终点为止。
     代码实现：algorithm包下的DijkstraAlgorithm类文件
     
+### 弗洛伊德算法
+    
+    计算的是图中各个顶点之间的最短路径
+    
+    代码实现：algorithm包下的FloydAlgorithm类文件
+    
+### 骑士周游回溯算法
+
+    代码实现：algorithm包下的HorseChessboard类文件
+    
     
     
     
