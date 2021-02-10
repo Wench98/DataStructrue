@@ -52,9 +52,9 @@
     
     2020-05-13
     1、求单链表中有效节点的个数
-    解答：cn.wench.linkedlist.SingleLinkedListDemo.java文件中的getLength(HeroNode head)方法。
+    解答：SingleLinkedListDemo.java文件中的getLength(HeroNode head)方法。
     2、查找单链表中的倒数第K个节点
-    解答：cn.wench.linkedlist.SingleLinkedListDemo.java文件中的findLastIndexNode(HeroNode hero, int index)方法。
+    解答：SingleLinkedListDemo.java文件中的findLastIndexNode(HeroNode hero, int index)方法。
     
     今天面试了两家公司，一家外包，一家因为自己知识储备量不够没能抓住机会，没有怨言。
     我也不知道自己能不能找到合心意的Java开发工作，就目前来看，应该是没有任何希望了。
@@ -62,9 +62,9 @@
     如果这些都做完了，还是没法找到合适工作的话，那便试试看其他的出路吧。
     
     3、单链表的反转
-    解答：cn.wench.linkedlist.SingleLinkedListDemo.java文件中的reverseList(HeroNode head)方法
+    解答：SingleLinkedListDemo.java文件中的reverseList(HeroNode head)方法
     4、从尾到头打印单链表，使用栈的先进后出特点进行打印
-    解答：cn.wench.linkedlist.SingleLinkedListDemo.java文件中的reversePrint(HeroNode hero)方法
+    解答：SingleLinkedListDemo.java文件中的reversePrint(HeroNode hero)方法
     
     5、合并两个有序的单链表，合并之后的链表依然有序
     解答：待完成。
@@ -72,13 +72,13 @@
 ### 双向链表的增删改查
     
     2020-05-14
-    cn.wench.linkedlist.DoubleLinkedListDemo.java文件实现了对双向链表的增删改查操作
+    DoubleLinkedListDemo.java文件实现了对双向链表的增删改查操作
     待完成：双向链表的第二种添加方式，按照编号顺序进行添加。按照单链表的顺序添加，稍作修改。
     
 ### 约瑟夫问题——环形链表
     
     2020-05-15
-    cn.wench.linkedlist.Josephu.java文件完成了环形链表，即约瑟夫环的实现。
+    Josephu.java文件完成了环形链表，即约瑟夫环的实现。
     数到规定数字的人出圈，直到剩下最后一个。
     
 ## 栈
